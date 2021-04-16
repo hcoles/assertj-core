@@ -21,7 +21,6 @@ import org.assertj.core.api.ClassAssert;
 import org.assertj.core.api.ClassAssertBaseTest.AnnotatedClass;
 import org.assertj.core.api.ClassAssertBaseTest.AnotherAnnotation;
 import org.assertj.core.api.ClassAssertBaseTest.MyAnnotation;
-import org.assertj.core.api.ProxyableClassAssert;
 import org.assertj.core.util.VisibleForTesting;
 
 /**
@@ -29,7 +28,6 @@ import org.assertj.core.util.VisibleForTesting;
  */
 class Class_final_method_assertions_in_assumptions_Test extends BaseAssumptionsRunnerTest {
 
-  @SuppressWarnings("unchecked")
   public static Stream<AssumptionRunner<?>> provideAssumptionsRunners() {
     return Stream.of(assumptionRunner(AnnotatedClass.class,
                                       value -> assumeThat(value).hasAnnotations(MyAnnotation.class, AnotherAnnotation.class),

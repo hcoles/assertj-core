@@ -24,7 +24,6 @@ import java.util.stream.Stream;
 
 import org.assertj.core.api.Condition;
 import org.assertj.core.api.ListAssert;
-import org.assertj.core.api.ProxyableListAssert;
 import org.assertj.core.data.TolkienCharacter;
 import org.assertj.core.test.CartoonCharacter;
 
@@ -34,7 +33,6 @@ import org.assertj.core.test.CartoonCharacter;
  */
 class List_special_assertion_methods_in_assumptions_Test extends BaseAssumptionsRunnerTest {
 
-  @SuppressWarnings("unchecked")
   public static Stream<AssumptionRunner<?>> provideAssumptionsRunners() {
     return Stream.of(
                      // extracting methods

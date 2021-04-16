@@ -28,7 +28,6 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 import org.assertj.core.api.MapAssert;
-import org.assertj.core.api.ProxyableMapAssert;
 
 /**
  * Verify that assertions final methods or methods changing the object under test in {@link MapAssert} work with assumptions
@@ -36,7 +35,6 @@ import org.assertj.core.api.ProxyableMapAssert;
  */
 class Map_special_assertion_methods_in_assumptions_Test extends BaseAssumptionsRunnerTest {
 
-  @SuppressWarnings("unchecked")
   public static Stream<AssumptionRunner<?>> provideAssumptionsRunners() {
 
     List<String> names = asList("Dave", "Jeff");

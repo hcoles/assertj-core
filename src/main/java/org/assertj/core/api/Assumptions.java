@@ -130,8 +130,8 @@ public class Assumptions {
    * @since 2.9.0 / 3.9.0
    */
   @SuppressWarnings("unchecked")
-  public static <T> ProxyableObjectAssert<T> assumeThat(T actual) {
-    return asAssumption(ProxyableObjectAssert.class, Object.class, actual);
+  public static <T> ObjectAssert<T> assumeThat(T actual) {
+    return asAssumption(ObjectAssert.class, Object.class, actual);
   }
 
   /**
@@ -740,8 +740,8 @@ public class Assumptions {
    * @return the created assumption for assertion object.
    * @since 2.9.0 / 3.9.0
    */
-  public static AbstractClassAssert<?> assumeThat(Class<?> actual) {
-    return asAssumption(ProxyableClassAssert.class, Class.class, actual);
+  public static ClassAssert assumeThat(Class<?> actual) {
+    return asAssumption(ClassAssert.class, Class.class, actual);
   }
 
   /**
@@ -811,14 +811,12 @@ public class Assumptions {
    * @since 2.9.0 / 3.9.0
    */
   @SuppressWarnings("unchecked")
-  public static <ELEMENT> ProxyableIterableAssert<ELEMENT> assumeThat(Iterable<? extends ELEMENT> actual) {
-    return asAssumption(ProxyableIterableAssert.class, Iterable.class, actual);
+  public static <ELEMENT> IterableAssert<ELEMENT> assumeThat(Iterable<? extends ELEMENT> actual) {
+    return asAssumption(IterableAssert.class, Iterable.class, actual);
   }
 
   /**
    * Creates a new instance of <code>{@link IteratorAssert}</code> assumption.
-   * <p>
-   * <b>Breaking change in version 3.12.0:</b> this method does not return anymore an {@link ProxyableIterableAssert} but an {@link IteratorAssert}.<br>
    *
    * @param <ELEMENT> the type of elements.
    * @param actual the actual value.
@@ -839,8 +837,8 @@ public class Assumptions {
    * @since 2.9.0 / 3.9.0
    */
   @SuppressWarnings("unchecked")
-  public static <ELEMENT> FactoryBasedNavigableListAssert<ProxyableListAssert<ELEMENT>, List<? extends ELEMENT>, ELEMENT, ObjectAssert<ELEMENT>> assumeThat(List<? extends ELEMENT> actual) {
-    return asAssumption(ProxyableListAssert.class, List.class, actual);
+  public static <ELEMENT> FactoryBasedNavigableListAssert<ListAssert<ELEMENT>, List<? extends ELEMENT>, ELEMENT, ObjectAssert<ELEMENT>> assumeThat(List<? extends ELEMENT> actual) {
+    return asAssumption(ListAssert.class, List.class, actual);
   }
 
   /**
@@ -852,8 +850,8 @@ public class Assumptions {
    * @since 2.9.0 / 3.9.0
    */
   @SuppressWarnings("unchecked")
-  public static <T> ProxyableObjectArrayAssert<T> assumeThat(T[] actual) {
-    return asAssumption(ProxyableObjectArrayAssert.class, Object[].class, actual);
+  public static <T> ObjectArrayAssert<T> assumeThat(T[] actual) {
+    return asAssumption(ObjectArrayAssert.class, Object[].class, actual);
   }
 
   /**
@@ -879,8 +877,8 @@ public class Assumptions {
    * @since 2.9.0 / 3.9.0
    */
   @SuppressWarnings("unchecked")
-  public static <K, V> AbstractMapAssert<?, ?, K, V> assumeThat(Map<K, V> actual) {
-    return asAssumption(ProxyableMapAssert.class, Map.class, actual);
+  public static <K, V> MapAssert<K, V> assumeThat(Map<K, V> actual) {
+    return asAssumption(MapAssert.class, Map.class, actual);
   }
 
   /**
@@ -970,7 +968,7 @@ public class Assumptions {
    * @return the created assertion object.
    * @since 3.12.0
    */
-  public static <T> ProxyableObjectAssert<T> assumeThatObject(T actual) {
+  public static <T> ObjectAssert<T> assumeThatObject(T actual) {
     return assumeThat(actual);
   }
 
@@ -983,8 +981,8 @@ public class Assumptions {
    * @since 3.9.0
    */
   @SuppressWarnings("unchecked")
-  public static <T> ProxyablePredicateAssert<T> assumeThat(Predicate<T> actual) {
-    return asAssumption(ProxyablePredicateAssert.class, Predicate.class, actual);
+  public static <T> PredicateAssert<T> assumeThat(Predicate<T> actual) {
+    return asAssumption(PredicateAssert.class, Predicate.class, actual);
   }
 
   /**
@@ -1204,7 +1202,7 @@ public class Assumptions {
    */
   @SuppressWarnings("unchecked")
   public static <ELEMENT> AbstractListAssert<?, List<? extends ELEMENT>, ELEMENT, ObjectAssert<ELEMENT>> assumeThat(Stream<? extends ELEMENT> actual) {
-    return asAssumption(ProxyableListAssert.class, Stream.class, actual);
+    return asAssumption(ListAssert.class, Stream.class, actual);
   }
 
   /**
@@ -1216,7 +1214,7 @@ public class Assumptions {
    */
   @SuppressWarnings("unchecked")
   public static AbstractListAssert<?, List<? extends Double>, Double, ObjectAssert<Double>> assumeThat(DoubleStream actual) {
-    return asAssumption(ProxyableListAssert.class, DoubleStream.class, actual);
+    return asAssumption(ListAssert.class, DoubleStream.class, actual);
   }
 
   /**
@@ -1228,7 +1226,7 @@ public class Assumptions {
    */
   @SuppressWarnings("unchecked")
   public static AbstractListAssert<?, List<? extends Long>, Long, ObjectAssert<Long>> assumeThat(LongStream actual) {
-    return asAssumption(ProxyableListAssert.class, LongStream.class, actual);
+    return asAssumption(ListAssert.class, LongStream.class, actual);
   }
 
   /**
@@ -1240,7 +1238,7 @@ public class Assumptions {
    */
   @SuppressWarnings("unchecked")
   public static AbstractListAssert<?, List<? extends Integer>, Integer, ObjectAssert<Integer>> assumeThat(IntStream actual) {
-    return asAssumption(ProxyableListAssert.class, IntStream.class, actual);
+    return asAssumption(ListAssert.class, IntStream.class, actual);
   }
 
   /**
@@ -1326,13 +1324,12 @@ public class Assumptions {
     // @format:off
     Object actual = assertion.actual;
     if (assertion instanceof StringAssert) return asAssumption(StringAssert.class, String.class, actual);
-    if (assertion instanceof FactoryBasedNavigableListAssert) return asAssumption(ProxyableListAssert.class, List.class, actual);
-    if (assertion instanceof ProxyableIterableAssert) return asAssumption(ProxyableIterableAssert.class, Iterable.class, actual);
-    if (assertion instanceof ProxyableMapAssert) return asAssumption(ProxyableMapAssert.class, Map.class, actual);
-    if (assertion instanceof AbstractObjectArrayAssert) return asAssumption(ProxyableObjectArrayAssert.class, Object[].class, actual);
+    if (assertion instanceof FactoryBasedNavigableListAssert) return asAssumption(ListAssert.class, List.class, actual);
+    if (assertion instanceof IterableAssert) return asAssumption(IterableAssert.class, Iterable.class, actual);
+    if (assertion instanceof MapAssert) return asAssumption(MapAssert.class, Map.class, actual);
+    if (assertion instanceof AbstractObjectArrayAssert) return asAssumption(ObjectArrayAssert.class, Object[].class, actual);
     if (assertion instanceof IterableSizeAssert) return asIterableSizeAssumption(assertion);
     if (assertion instanceof MapSizeAssert) return asMapSizeAssumption(assertion);
-    if (assertion instanceof ProxyableObjectAssert) return asAssumption(ObjectAssert.class, Object.class, actual);
     if (assertion instanceof ObjectAssert) return asAssumption(ObjectAssert.class, Object.class, actual);
     if (assertion instanceof RecursiveComparisonAssert) return asRecursiveComparisonAssumption(assertion);
     // @format:on

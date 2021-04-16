@@ -20,17 +20,14 @@ import static org.assertj.core.api.assumptions.BaseAssumptionRunner.assumptionRu
 import java.util.stream.Stream;
 
 import org.assertj.core.api.ObjectAssert;
-import org.assertj.core.api.ProxyableObjectAssert;
 import org.assertj.core.data.TolkienCharacter;
 import org.assertj.core.data.TolkienCharacter.Race;
 
 /**
- * verify that assertions final methods or methods changing the object under test in {@link ObjectAssert} work with assumptions
- * (i.e. that they are proxied correctly in {@link ProxyableObjectAssert}).
+ * Verify that assertions final methods or methods changing the object under test in {@link ObjectAssert} work with assumptions.
  */
 class Object_special_assertion_methods_in_assumptions_Test extends BaseAssumptionsRunnerTest {
 
-  @SuppressWarnings("unchecked")
   public static Stream<AssumptionRunner<?>> provideAssumptionsRunners() {
     return Stream.of(assumptionRunner(TolkienCharacter.of("Frodo", 33, Race.HOBBIT),
                                       value -> assumeThat(value).extracting(TolkienCharacter::getName, TolkienCharacter::getAge)

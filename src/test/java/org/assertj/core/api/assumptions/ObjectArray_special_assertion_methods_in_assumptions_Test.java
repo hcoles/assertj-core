@@ -23,7 +23,6 @@ import java.util.stream.Stream;
 
 import org.assertj.core.api.Condition;
 import org.assertj.core.api.ObjectArrayAssert;
-import org.assertj.core.api.ProxyableObjectArrayAssert;
 import org.assertj.core.data.TolkienCharacter;
 import org.assertj.core.test.CartoonCharacter;
 
@@ -33,7 +32,6 @@ import org.assertj.core.test.CartoonCharacter;
  */
 class ObjectArray_special_assertion_methods_in_assumptions_Test extends BaseAssumptionsRunnerTest {
 
-  @SuppressWarnings("unchecked")
   public static Stream<AssumptionRunner<?>> provideAssumptionsRunners() {
     return Stream.of(
                      // extracting methods

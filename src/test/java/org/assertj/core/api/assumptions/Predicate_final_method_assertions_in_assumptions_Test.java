@@ -20,7 +20,6 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 import org.assertj.core.api.ClassAssert;
-import org.assertj.core.api.ProxyableClassAssert;
 import org.assertj.core.data.MapEntry;
 
 /**
@@ -28,7 +27,6 @@ import org.assertj.core.data.MapEntry;
  */
 class Predicate_final_method_assertions_in_assumptions_Test extends BaseAssumptionsRunnerTest {
 
-  @SuppressWarnings("unchecked")
   public static Stream<AssumptionRunner<?>> provideAssumptionsRunners() {
     Predicate<MapEntry<String, String>> ballSportPredicate = sport -> sport.value.contains("ball");
     return Stream.of(assumptionRunner(ballSportPredicate,
