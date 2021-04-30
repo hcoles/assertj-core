@@ -70,8 +70,6 @@ import org.assertj.core.api.AssertionInfo;
 import org.assertj.core.api.Condition;
 import org.assertj.core.error.UnsatisfiedRequirement;
 import org.assertj.core.util.VisibleForTesting;
-import org.objenesis.Objenesis;
-import org.objenesis.ObjenesisStd;
 
 /**
  * Reusable assertions for <code>{@link Map}</code>s.
@@ -83,8 +81,6 @@ import org.objenesis.ObjenesisStd;
 public class Maps {
 
   private static final Maps INSTANCE = new Maps();
-
-  Objenesis objenesis = new ObjenesisStd();
 
   /**
    * Returns the singleton instance of this class.
@@ -877,7 +873,6 @@ public class Maps {
     try {
       Constructor<?> constructor = mapClass.getConstructor();
       return (Map<K, V>) constructor.newInstance();
-      // return objenesis.newInstance(class1);
     } catch (Exception e) {
       // default map but might not honor mapClass semantics (ex: CaseInsensitiveMap)
       return new LinkedHashMap<>();
